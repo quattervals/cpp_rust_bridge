@@ -1,0 +1,12 @@
+[package]
+name = "person-bridge"
+version.workspace = true
+edition.workspace = true
+
+
+[lib]
+name = "person_bridge_rs"
+crate-type = ["staticlib"]
+
+[dependencies]
+person = {path = "../person"}
