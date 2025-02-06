@@ -14,12 +14,12 @@ class Person final
 {
   public:
     //todo: delete unwanted constructors
-    // ~Person();
+    ~Person();
 
     static Person New(const std::string& name, const std::string& zip, uint32_t dob);
 
   private:
-    Person(detail::person* inner);
+    explicit Person(detail::person* inner);
 
     detail::person* _inner;
 };
