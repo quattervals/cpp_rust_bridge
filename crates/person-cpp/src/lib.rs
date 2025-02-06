@@ -23,6 +23,6 @@ extern "C" fn person_new(name: *const c_char, zip: *const c_char, dob: c_uint) -
 extern "C" fn person_free(person: *mut Person) {
     unsafe {
         println!("dropping person");
-        drop(Box::from(person));
+        drop(Box::from_raw(person));
     }
 }

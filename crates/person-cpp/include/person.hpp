@@ -13,8 +13,13 @@ namespace detail {
 class Person final
 {
   public:
-    //todo: delete unwanted constructors
     ~Person();
+
+    Person(Person& other) = delete;
+    Person(Person&& other);
+
+    Person& operator=(Person& other) = delete;
+    Person& operator=(Person&& other);
 
     static Person New(const std::string& name, const std::string& zip, uint32_t dob);
 

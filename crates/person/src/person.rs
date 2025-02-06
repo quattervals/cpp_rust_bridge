@@ -1,8 +1,6 @@
 extern crate chrono;
 use crate::chrono::Datelike;
 
-
-
 pub struct Person {
     name: String,
     zip: String,
