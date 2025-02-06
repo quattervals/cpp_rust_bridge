@@ -10,4 +10,9 @@ Following the ideas in [optik](https://github.com/kylc/optik/tree/master/crates/
 ## Todo
 - release/debug profile
 - cross compilation
--
+
+
+## Release builds
+- compile release build `cmake -S . -B build -DCMAKE_BUILD_TYPE=Release`
+
+
