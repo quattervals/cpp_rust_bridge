@@ -2,7 +2,12 @@ cmake_minimum_required(VERSION 3.28)
 project(
   consumer
   VERSION 0.1.0
-  LANGUAGES CXX)
+  LANGUAGES CXX C
+  DESCRIPTION "C++ <-> Rust Bridge")
+
+if(DEFINED CMAKE_TOOLCHAIN_FILE)
+  include(${CMAKE_TOOLCHAIN_FILE})
+endif()
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)

@@ -1,0 +1,56 @@
+{
+  "version": 3,
+  "configurePresets": [
+    {
+      "name": "RPI3",
+      "displayName": "RPI3 Bullseye 64",
+      "description": "Building for target",
+      "binaryDir": "${sourceDir}/build_target",
+      "generator": "Unix Makefiles",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_TOOLCHAIN_FILE": "${sourceDir}/rpi_toolchain.cmake"
+      }
+    },
+    {
+      "name": "Host",
+      "displayName": "Linux",
+      "description": "Building for x84/amd64",
+      "binaryDir": "${sourceDir}/build",
+      "generator": "Unix Makefiles",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug"
+      }
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "Clean & Build RPI3",
+      "description": "",
+      "displayName": "",
+      "configurePreset": "RPI3",
+      "jobs": 6,
+      "cleanFirst": true
+    },
+    {
+      "name": "Build RPI3",
+      "description": "",
+      "displayName": "",
+      "configurePreset": "RPI3",
+      "jobs": 6
+    },
+    {
+      "name": "Clean & Build host",
+      "description": "",
+      "displayName": "",
+      "configurePreset": "Host",
+      "cleanFirst": true
+    },
+    {
+      "name": "Build host",
+      "description": "",
+      "displayName": "",
+      "configurePreset": "Host"
+    }
+  ]
+}

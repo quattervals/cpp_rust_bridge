@@ -10,3 +10,6 @@ crate-type = ["staticlib"]
 
 [dependencies]
 person = {path = "../person"}
+
+[target.aarch64-unknown-linux-gnu]
+linker = "aarch64-linux-gnu-gcc"
