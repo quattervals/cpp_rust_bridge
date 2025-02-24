@@ -13,7 +13,7 @@ Following the ideas in [optik](https://github.com/kylc/optik/tree/master/crates/
 - Configure `cmake -S . -B build`
 - Configure for release `cmake -S . -B build -DCMAKE_BUILD_TYPE=Release`
 - Build `cmake --build build`
-  - Run Unit Tests `cmake --build build --target person-test-rs`
+  - Run Unit Tests `cmake --build build --target <test-target>`, `<test-target>` is e.g. `person-cpp-test`
 
 
 ## Cross Compilation

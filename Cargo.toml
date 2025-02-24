@@ -1,8 +1,7 @@
 [workspace]
 resolver = "2"
 members = [
-  "crates/person",
-  "crates/person-cpp",
+  "person-cpp",
 ]
 
 [workspace.package]

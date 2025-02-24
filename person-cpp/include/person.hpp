@@ -3,6 +3,8 @@
 #include <string>
 #include <stdint.h>
 
+#include "lib.h"
+
 namespace person {
 namespace detail {
 
@@ -24,9 +26,11 @@ class Person final
     static Person New(const std::string& name, const std::string& zip, uint32_t dob);
 
   private:
-    explicit Person(detail::person* inner);
+    explicit Person(::rust::Box<::prs::Person> inner);
 
-    detail::person* _inner;
+    // detail::person* _inner;
+
+    ::rust::Box<::prs::Person> _inner;
 };
 
 }
