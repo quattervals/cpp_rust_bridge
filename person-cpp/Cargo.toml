@@ -2,29 +2,17 @@
 name = "person-bridge"
 version.workspace = true
 edition.workspace = true
-# build = "build.rs"
 
 [dependencies]
-chrono = "0.4.39"
-cxx = "1.0.130"
+chrono = "0.4"
+cxx = "1.0"
 
 [build-dependencies]
 cxx-build = "1.0"
-
 
 [lib]
 name = "person_bridge_rs"
 crate-type = ["staticlib"]
 
-# [env]
-# DOIT = "yes"
-
-
 [target.aarch64-unknown-linux-gnu]
 linker = "aarch64-linux-gnu-gcc"
-
-
-# [[bin]]
-# name = "cxx_build"
-# path = "build.rs"
-# cxx-build = "1.0"
