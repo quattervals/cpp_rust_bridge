@@ -53,3 +53,46 @@ Install the right rust cross compiler with `rustup target add aarch64-unknown-li
 
 - `sudo apt-get install gcc-arm-linux-gnueabihf g++-arm-linux-gnueabihf crossbuild-essential-armhf`
 - `rustup target add armv7-unknown-linux-gnueabihf`
+
+
+## Bindings with CXX
+
+Instead of manually implementing the C-ABI files (`lib.cpp`, `lib.rs`), we can generate the bindings using the CXX-Crate.
+- [cxx documentation](https://cxx.rs)
+- [cxx on GitHub](https://github.com/dtolnay/cxx)
+
+The core is this ffi definition:
+```rust
+#[cxx::bridge(namespace = "prs")]
+mod ffi {
+
+    extern "Rust" {
+
+        type Person;
+        fn new_person(name: &str, zip: &str, dob: u32) -> Box<Person>;
+        fn get_age(&self) -> u32;
+        fn get_zip(&self) -> &str;
+        fn update_zip(&mut self, zip: &str);
+
+    }
+}
+```
+The building of the ffi-bridge binary is taken care of by corrosion
+```cmake
+corrosion_add_cxxbridge(
+  <bridge-target>
+  CRATE
+  <bridge-library>
+  MANIFEST_PATH
+  ${CMAKE_CURRENT_SOURCE_DIR}
+  FILES
+  <lib-with-ffi-definitions.rs>)
+```
+
+### Advantage
+- Only one point where bindings are defined.
+- High level concepts like strings and smart pointers are possible
+
+### Disadvantage
+- The `person.rs` file needs to be in the same package as the ffi-Bridge. Otherwise, we need to write a wrapper or put the ffi definition together with the person to the person crate.
+- Some ugly generated types show up in the C++ wrapper class (`::rust::Box<::prs::Person> _inner;`). But only in private fields. The interface exposed to the rest of the C++ project is free of generated types.

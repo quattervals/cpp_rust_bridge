@@ -64,7 +64,7 @@ target_include_directories(${PROJECT_NAME}
 target_include_directories(
   ${PROJECT_NAME}
   PUBLIC
-    ${CMAKE_BINARY_DIR}/${PROJECT_NAME}/corrosion_generated/cxxbridge/${CXX_BRIDGE_LIB}/include/${CXX_BRIDGE_LIB}/
+    ${CMAKE_BINARY_DIR}/crates/${PROJECT_NAME}/corrosion_generated/cxxbridge/${CXX_BRIDGE_LIB}/include/${CXX_BRIDGE_LIB}/
 )
 
 add_custom_target(

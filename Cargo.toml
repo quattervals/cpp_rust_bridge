@@ -1,14 +1,11 @@
 [workspace]
 resolver = "2"
-members = [
-  "person-cpp",
-]
+members = ["crates/person-cpp"]
 
 [workspace.package]
 authors = ["Oliver With"]
 version = "0.1.0"
 edition = "2021"
-
 
 
 [profile.release]

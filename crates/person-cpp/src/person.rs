@@ -1,29 +1,16 @@
 use chrono::Datelike;
 
-#[cxx::bridge(namespace = "prs")] // todo scoping? #[cxx::bridge(namespace = "org::blobstore")]
-mod ffi {
-
-    extern "Rust" {
-
-        type Person;
-        fn new_person(name: &str, zip: &str, dob: u32) -> Box<Person>;
-        fn get_age(&self) -> u32;
-        fn get_zip(&self) -> &str;
-        fn update_zip(&mut self, zip: &str);
-
-    }
-}
-
 pub struct Person {
     name: String,
     zip: String,
-    dob: u32, //todo use chrono::NaiveDate
-    id: u32,  // in future may be hash of above
+    dob: u32,
+    id: u32, // in future may be hash of above
 }
 
-fn new_person(name: &str, zip: &str, dob: u32) -> Box<Person> {
+pub fn new_person(name: &str, zip: &str, dob: u32) -> Box<Person> {
     Box::new(Person::new(name, zip, dob))
 }
+
 impl Person {
     pub fn new(name: &str, zip: &str, dob: u32) -> Person {
         Person {

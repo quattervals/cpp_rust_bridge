@@ -6,11 +6,6 @@
 #include "lib.h"
 
 namespace person {
-namespace detail {
-
-    //! Opaque struct used only in interface with the underlying C API
-    struct person;
-}
 
 class Person final
 {
@@ -27,8 +22,6 @@ class Person final
 
   private:
     explicit Person(::rust::Box<::prs::Person> inner);
-
-    // detail::person* _inner;
 
     ::rust::Box<::prs::Person> _inner;
 };
