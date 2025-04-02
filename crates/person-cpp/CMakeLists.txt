@@ -33,8 +33,9 @@ target_include_directories(${PROJECT_NAME}
 
 add_dependencies(${PROJECT_NAME} person_bridge_rs)
 
-add_custom_target(
-  person-test-rs
+# run the test in <build> with ctest [-V]
+add_test(
+  NAME person-cpp
   COMMAND cargo test --manifest-path
           ${CMAKE_SOURCE_DIR}/crates/person/Cargo.toml
   WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}/crates/person)
