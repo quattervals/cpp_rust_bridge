@@ -12,6 +12,8 @@ endif()
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
+enable_testing()
+
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/crates/person-cpp)
 
 add_executable(${PROJECT_NAME} use_rust.cpp)

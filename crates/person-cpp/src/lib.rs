@@ -1,7 +1,4 @@
-use std::{
-    ffi::{c_char, c_double, c_uint, c_ulong, CStr},
-    mem,
-};
+use std::ffi::{c_char, c_uint, CStr};
 
 use person::Person;
 

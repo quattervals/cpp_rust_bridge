@@ -2,7 +2,6 @@
 #include "person.hpp"
 
 extern "C" {
-
 extern person::detail::person* person_new(const char* name, const char* zip, uint32_t dob);
 extern void person_free(person::detail::person* person);
 }

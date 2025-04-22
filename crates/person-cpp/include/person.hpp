@@ -4,8 +4,8 @@
 #include <stdint.h>
 
 namespace person {
-namespace detail {
 
+namespace detail {
     //! Opaque struct used only in interface with the underlying C API
     struct person;
 }
