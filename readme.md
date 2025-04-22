@@ -1,11 +1,22 @@
 # C++ and Rust interoperability
 
-Make a Rust-Library available in C++
+Make a Rust-Library available in C++.
 
-Following the ideas in [optik](https://github.com/kylc/optik/tree/master/crates/optik-cpp)
+## Goals
+- The Rust library integrates seamlessly into a C++ project
+- Minimal leakage of Rust types to C++
+- The Rust library exposes C++ ergonomics for interaction with the library
+- The Rust library is easy to integrate into CMake build
 
 
-## Todo
+## Approach
+
+![Project Diagram](./doc/rust_in_cpp_lib.png)
+- `person` is a pure Rust library
+  - No FFI-Code
+  - easy to re-use in pure Rust context
+- `person-cpp` takes care of the bindings between C++ and Rust
+  - A C++ header file is exposed with the declaration of a wrapper class
 
 
 
