@@ -31,8 +31,6 @@ target_link_libraries(${PROJECT_NAME} PRIVATE person_bridge_rs)
 target_include_directories(${PROJECT_NAME}
                            PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
 
-add_dependencies(${PROJECT_NAME} person_bridge_rs)
-
 # run the test in <build> with ctest [-V]
 add_test(
   NAME person-cpp
