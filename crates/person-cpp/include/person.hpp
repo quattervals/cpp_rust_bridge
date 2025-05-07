@@ -3,7 +3,7 @@
 #include <string>
 #include <stdint.h>
 
-#include "lib.h"
+#include "personbridge.h"
 
 namespace person {
 
@@ -21,9 +21,9 @@ class Person final
     static Person New(const std::string& name, const std::string& zip, uint32_t dob);
 
   private:
-    explicit Person(::rust::Box<::prs::Person> inner);
+    explicit Person(::rust::Box<::rstperson::Person> inner);
 
-    ::rust::Box<::prs::Person> _inner;
+    ::rust::Box<::rstperson::Person> _inner;
 };
 
 }

@@ -51,7 +51,7 @@ corrosion_add_cxxbridge(
   MANIFEST_PATH
   ${CMAKE_CURRENT_SOURCE_DIR}
   FILES
-  lib.rs)
+  personbridge.rs)
 
 add_library(${PROJECT_NAME} STATIC src/lib.cpp)
 

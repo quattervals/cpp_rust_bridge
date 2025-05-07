@@ -5,7 +5,7 @@ use person::{new_person, Person};
 
 
 
-#[cxx::bridge(namespace = "prs")]
+#[cxx::bridge(namespace = "rstperson")]
 mod ffi {
 
     extern "Rust" {

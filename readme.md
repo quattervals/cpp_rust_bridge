@@ -63,7 +63,7 @@ Instead of manually implementing the C-ABI files (`lib.cpp`, `lib.rs`), we can g
 
 The core is this ffi definition:
 ```rust
-#[cxx::bridge(namespace = "prs")]
+#[cxx::bridge(namespace = "rstperson")]
 mod ffi {
 
     extern "Rust" {
@@ -95,4 +95,4 @@ corrosion_add_cxxbridge(
 
 ### Disadvantage
 - The `person.rs` file needs to be in the same package as the ffi-Bridge. Otherwise, we need to write a wrapper or put the ffi definition together with the person to the person crate.
-- Some ugly generated types show up in the C++ wrapper class (`::rust::Box<::prs::Person> _inner;`). But only in private fields. The interface exposed to the rest of the C++ project is free of generated types.
+- Some ugly generated types show up in the C++ wrapper class (`::rust::Box<::rstperson::Person> _inner;`). But only in private fields. The interface exposed to the rest of the C++ project is free of generated types.
